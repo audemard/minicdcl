@@ -23,10 +23,10 @@ lbool Solver::search(int nof_conflicts) {
     int backtrack_level, lbd;
     int nbConflictsInCurrentRun = 0;
     vec<Lit> learnt_clause;
-    starts++;
 
     for(;;) {
-        CRef confl = propagate();
+        CRef confl = propagate();                                // BCP (propagate all unit clauses until a fix point or a conflict is reached
+
         if(confl != CRef_Undef) {  // CONFLICT
             conflicts++;nbConflictsInCurrentRun++;
 
@@ -99,6 +99,7 @@ lbool Solver::solve_() {
 
     int curr_restarts = 0;
     while(status == l_Undef) {
+        starts++;
         double rest_base = luby_restart ? luby(2, curr_restarts) : pow(1.5, curr_restarts);
         status = search(rest_base * 32);  // Search for a limited number of conflict
         if(!withinBudget()) break;
