@@ -1,0 +1,17 @@
+================================================================================
+DIRECTORY OVERVIEW:
+
+mtl/            Mini Template Library
+utils/          Generic helper code (I/O, Parsing, CPU-time, etc)
+core/           A core version of the solver
+README
+LICENSE
+
+================================================================================
+BUILDING: (release version: without assertions, statically linked, etc)
+
+cd core 
+gmake rs
+cp minisat_static <install-dir>/minisat
+
+
