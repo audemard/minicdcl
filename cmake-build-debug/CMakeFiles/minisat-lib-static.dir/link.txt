@@ -1,2 +1,0 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libminisat.a  CMakeFiles/minisat-lib-static.dir/utils/Options.cc.o CMakeFiles/minisat-lib-static.dir/utils/System.cc.o CMakeFiles/minisat-lib-static.dir/core/Solver.cc.o
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libminisat.a
