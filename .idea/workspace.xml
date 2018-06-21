@@ -13,7 +13,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e52f350a-3bde-4032-bf4f-73e8c6e3d87e" name="Default" comment="" />
+    <list default="true" id="e52f350a-3bde-4032-bf4f-73e8c6e3d87e" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/core/Solver.cc" afterPath="$PROJECT_DIR$/core/Solver.cc" />
+    </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,8 +31,8 @@
       <file leaf-file-name="Solver.cc" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/Solver.cc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="221" column="89" lean-forward="true" selection-start-line="221" selection-start-column="89" selection-end-line="221" selection-end-column="89" />
+            <state relative-caret-position="574">
+              <caret line="397" column="18" lean-forward="false" selection-start-line="397" selection-start-column="18" selection-end-line="397" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -50,6 +53,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="72">
               <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Solver.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/Solver.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="621">
+              <caret line="234" column="0" lean-forward="true" selection-start-line="234" selection-start-column="0" selection-end-line="234" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -89,7 +102,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>simplif</find>
       <find>simplify</find>
       <find>simpli</find>
       <find>res</find>
@@ -119,10 +131,14 @@
       <find>toDima</find>
       <find>_sim</find>
       <find>minisat</find>
+      <find>varBumpA</find>
     </findStrings>
     <replaceStrings>
       <replace>minicdcl</replace>
     </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -141,7 +157,6 @@
         <option value="$PROJECT_DIR$/utils/ParseUtils.h" />
         <option value="$PROJECT_DIR$/utils/System.cc" />
         <option value="$PROJECT_DIR$/utils/System.h" />
-        <option value="$PROJECT_DIR$/core/Solver.h" />
         <option value="$PROJECT_DIR$/simp/Main.cc" />
         <option value="$PROJECT_DIR$/simp/SimpSolver.h" />
         <option value="$PROJECT_DIR$/simp/SimpSolver.cc" />
@@ -151,6 +166,7 @@
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/core/Makefile" />
         <option value="$PROJECT_DIR$/core/Main.cc" />
+        <option value="$PROJECT_DIR$/core/Solver.h" />
         <option value="$PROJECT_DIR$/core/Solver.cc" />
       </list>
     </option>
@@ -168,6 +184,7 @@
     <option name="width" value="1784" />
     <option name="height" value="1417" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -260,12 +277,12 @@
       <workItem from="1529387798773" duration="13234000" />
       <workItem from="1529426435206" duration="2753000" />
       <workItem from="1529477123614" duration="3112000" />
-      <workItem from="1529564180609" duration="2549000" />
+      <workItem from="1529564180609" duration="4757000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21648000" />
+    <option name="totallyTimeSpent" value="23856000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="473" y="23" width="1784" height="1417" extended-state="0" />
@@ -278,7 +295,7 @@
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32948422" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -499,14 +516,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/Solver.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2790">
-          <caret line="155" column="25" lean-forward="false" selection-start-line="155" selection-start-column="25" selection-end-line="155" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/simp/Main.cc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="605">
@@ -595,10 +604,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/core/Solver.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="234" column="0" lean-forward="true" selection-start-line="234" selection-start-column="0" selection-end-line="234" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/Solver.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="221" column="89" lean-forward="true" selection-start-line="221" selection-start-column="89" selection-end-line="221" selection-end-column="89" />
+        <state relative-caret-position="574">
+          <caret line="397" column="18" lean-forward="false" selection-start-line="397" selection-start-column="18" selection-end-line="397" selection-end-column="18" />
           <folding />
         </state>
       </provider>

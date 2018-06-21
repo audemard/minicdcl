@@ -276,7 +276,7 @@ void Solver::analyze(CRef confl, vec<Lit> &out_learnt, int &out_btlevel, int &lb
             if(!seen[var(q)] && level(var(q)) > 0) {
                 varBumpActivity(var(q));               // VSIDS favors variables that appear recently in conflict analysis
                 seen[var(q)] = 1;                      // process a variable only once
-                if(level(var(q)) >= decisionLevel())   // The literal is on the last level, one need to make a resolution
+                if(level(var(q)) >= decisionLevel())   // The literal is assigned at the last level, one need to make a resolution
                     nbResolutionsToPerform++;
                 else
                     out_learnt.push(q);                // The literal was assigned before, add it to the asserting clause
