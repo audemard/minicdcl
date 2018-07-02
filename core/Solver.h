@@ -30,8 +30,9 @@ namespace CDCL {
 
         // Solving:
         //
-        lbool solve();                  // Search without assumptions.
-        bool okay() const;              // FALSE means solver is in a conflicting state
+        lbool solve();                        // Search without assumptions.
+        bool okay() const;                    // FALSE means solver is in a conflicting state
+        lbool solve(const vec<Lit>& assumps); // Solve with assumptions
 
 
 
@@ -64,6 +65,11 @@ namespace CDCL {
         // Extra results: (read-only member variable)
         //
         vec<lbool> model;               // If problem is satisfiable, this vector contains the model (if any).
+
+
+        // Working with assumptions
+        vec<Lit>   conflict;               // If problem is unsatisfiable (possibly under assumptions),
+        vec<Lit>   assumptions;            // Current set of assumptions provided to solve by the user.
 
         // Mode of operation:
         //
@@ -173,10 +179,12 @@ namespace CDCL {
         CRef propagate();                                                    // Perform unit propagation. Returns possibly conflicting clause.
         void cancelUntil(int level);                                         // Backtrack until a certain level.
         void analyze(CRef confl, vec<Lit> &out_learnt, int &out_btlevel, int & lbd);    // (bt = backtrack)
+        void     analyzeFinal     (Lit p, vec<Lit>& out_conflict);           // Working with assumptions
         lbool search(int nof_conflicts);                                     // Search for a given number of conflicts.
         lbool solve_();                                                      // Main solve method (assumptions given in 'assumptions').
-        void reduceDB();                                                     // Reduce the set of learnt clauses.
         int computeLBD(vec<Lit> &lits);                                      // compute the LBD of a clause
+        void reduceDB();                                                     // Reduce the set of learnt clauses.
+
         // Maintaining Variable/Clause activity:
         //
         void varDecayActivity();                     // Decay all variables with the specified factor. Implemented by increasing the 'bump' value instead.
@@ -322,6 +330,11 @@ namespace CDCL {
         budgetOff();
         return solve_();
     }
+
+    inline lbool Solver::solve(const vec<Lit>& assumps){
+        assumps.copyTo(assumptions); return solve_();
+    }
+
 
 
     inline bool Solver::okay() const { return ok; }

@@ -22,7 +22,7 @@ void printStats(Solver &solver) {
     printf("c propagations          : %-12"PRIu64"   (%.0f /sec)\n", solver.propagations, solver.propagations / cpu_time);
     printf("c\n");
     printf("c nb reduce DB          : %-12"PRIu64" \n", solver.nb_reducedb);
-    printf("c removed clauses       : %-12"PRIu64"   (%"PRIu64" %% of total)\n", solver.nb_removed_clauses, (solver.nb_removed_clauses*100) / solver.conflicts);
+    printf("c removed clauses       : %-12"PRIu64"   (%"PRIu64" %% of total)\n", solver.nb_removed_clauses, (solver.conflicts==0 ? 0 : (solver.nb_removed_clauses*100) / solver.conflicts));
     printf("c\n");
     printf("c CPU time              : %g s\n", cpu_time);
 }
@@ -138,8 +138,11 @@ int main(int argc, char **argv) {
         signal(SIGINT, SIGINT_interrupt);
         signal(SIGXCPU, SIGINT_interrupt);
 
-
-        lbool ret = S.solve();
+        // Working with stupid assumptions:
+        vec<Lit> assumptions;
+        assumptions.push(mkLit(0, true));
+        assumptions.push(mkLit(100, true));
+        lbool ret = S.solve(assumptions);
         if(S.verbosity > 0) {
 
             printStats(S);

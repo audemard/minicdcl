@@ -14,8 +14,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e52f350a-3bde-4032-bf4f-73e8c6e3d87e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mtl/BoundedQueue.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/Main.cc" afterPath="$PROJECT_DIR$/core/Main.cc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/Solver.cc" afterPath="$PROJECT_DIR$/core/Solver.cc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/Solver.h" afterPath="$PROJECT_DIR$/core/Solver.h" />
     </list>
@@ -32,8 +32,8 @@
       <file leaf-file-name="Solver.cc" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/Solver.cc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="38" column="75" lean-forward="false" selection-start-line="38" selection-start-column="75" selection-end-line="38" selection-end-column="75" />
+            <state relative-caret-position="371">
+              <caret line="79" column="33" lean-forward="true" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -44,9 +44,11 @@
       <file leaf-file-name="Main.cc" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/Main.cc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="3" column="9" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="784">
+              <caret line="155" column="25" lean-forward="true" selection-start-line="155" selection-start-column="25" selection-end-line="155" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -84,8 +86,8 @@
       <file leaf-file-name="Solver.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/Solver.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="146" column="20" lean-forward="false" selection-start-line="146" selection-start-column="20" selection-end-line="146" selection-end-column="20" />
+            <state relative-caret-position="462">
+              <caret line="181" column="104" lean-forward="false" selection-start-line="181" selection-start-column="104" selection-end-line="181" selection-end-column="104" />
               <folding>
                 <element signature="e#51#71#0" expanded="true" />
               </folding>
@@ -116,7 +118,6 @@
       <find>restart_inc</find>
       <find>reduceD</find>
       <find>restart</find>
-      <find>solve(</find>
       <find>solve</find>
       <find>lu</find>
       <find>reason</find>
@@ -136,6 +137,7 @@
       <find>minisat</find>
       <find>varBumpA</find>
       <find>bqu</find>
+      <find>solve(</find>
       <find>1000</find>
     </findStrings>
     <replaceStrings>
@@ -170,9 +172,9 @@
         <option value="$PROJECT_DIR$/utils/Options.cc" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/core/Makefile" />
-        <option value="$PROJECT_DIR$/core/Main.cc" />
         <option value="$PROJECT_DIR$/mtl/BoundedQueue.h" />
         <option value="$PROJECT_DIR$/core/Solver.h" />
+        <option value="$PROJECT_DIR$/core/Main.cc" />
         <option value="$PROJECT_DIR$/core/Solver.cc" />
       </list>
     </option>
@@ -185,8 +187,7 @@
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="282" />
-    <option name="y" value="214" />
+    <option name="y" value="165" />
     <option name="width" value="1674" />
     <option name="height" value="999" />
   </component>
@@ -294,7 +295,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24840000" />
+    <option name="totallyTimeSpent" value="26491000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
@@ -372,7 +373,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
           <caret line="3" column="9" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -432,7 +435,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1170">
           <caret line="65" column="6" lean-forward="true" selection-start-line="65" selection-start-column="6" selection-end-line="65" selection-end-column="6" />
-          <folding />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -491,7 +496,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="17" column="32" lean-forward="true" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
-          <folding />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -547,7 +554,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="722">
           <caret line="38" column="18" lean-forward="false" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
-          <folding />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -693,16 +702,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/Solver.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="146" column="20" lean-forward="false" selection-start-line="146" selection-start-column="20" selection-end-line="146" selection-end-column="20" />
-          <folding>
-            <element signature="e#51#71#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils/Options.cc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
@@ -727,14 +726,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/Main.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="3" column="9" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mtl/BoundedQueue.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -743,10 +734,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/core/Solver.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="181" column="104" lean-forward="false" selection-start-line="181" selection-start-column="104" selection-end-line="181" selection-end-column="104" />
+          <folding>
+            <element signature="e#51#71#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/Main.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="784">
+          <caret line="155" column="25" lean-forward="true" selection-start-line="155" selection-start-column="25" selection-end-line="155" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/Solver.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="38" column="75" lean-forward="false" selection-start-line="38" selection-start-column="75" selection-end-line="38" selection-end-column="75" />
+        <state relative-caret-position="371">
+          <caret line="79" column="33" lean-forward="true" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>
