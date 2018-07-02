@@ -64,7 +64,7 @@ lbool Solver::search(int nof_conflicts) {
 
             Lit next = pickBranchLit();            // New decision literal
 
-            if(next == lit_Undef) return l_True;   // Model found
+            if(next == lit_Undef) return l_True;   // No more literal to assign: model found
 
             newDecisionLevel();                    // Increase decision level and enqueue 'next'
             uncheckedEnqueue(next);                // A decision literal, it has no reason
@@ -266,10 +266,10 @@ void Solver::analyze(CRef confl, vec<Lit> &out_learnt, int &out_btlevel, int &lb
     int index = trail.size() - 1;
 
     do {
-        assert(confl != CRef_Undef);        // (otherwise should be UIP)
+        assert(confl != CRef_Undef);                   // (otherwise should be UIP)
         Clause &c = ca[confl];
         nb_resolutions++;
-        if(c.learnt()) claBumpActivity(c);  // The clause is useful
+        if(c.learnt()) claBumpActivity(c);             // The clause is useful
 
         for(int j = (p == lit_Undef) ? 0 : 1; j < c.size(); j++) {
             Lit q = c[j];
@@ -277,14 +277,16 @@ void Solver::analyze(CRef confl, vec<Lit> &out_learnt, int &out_btlevel, int &lb
             if(!seen[var(q)] && level(var(q)) > 0) {
                 varBumpActivity(var(q));               // VSIDS favors variables that appear recently in conflict analysis
                 seen[var(q)] = 1;                      // process a variable only once
-                if(level(var(q)) >= decisionLevel())   // The literal is assigned at the last level, one need to make a resolution
-                    nbResolutionsToPerform++;
+                if(level(var(q)) >= decisionLevel())   // The literal is assigned at the conflict level
+                    nbResolutionsToPerform++;          // one more literal to remove
                 else
                     out_learnt.push(q);                // The literal was assigned before, add it to the asserting clause
             }
         }
 
         while(!seen[var(trail[index--])]);             // Select next useful literal on the last level
+                                                       // Indeed, some propagated literals are not responsible of the conflict
+
         p = trail[index + 1];                          // It is this one
         confl = reason(var(p));                        // It has a reason
         seen[var(p)] = 0;                              // Ok, we processed it
@@ -354,7 +356,6 @@ void Solver::reduceDB() {
     sort(learnts, reduceDB_lt(ca));
 
     // Don't delete binary or locked clauses. From the rest, delete clauses from the first half
-    // and clauses with activity smaller than 'extra_lim':
     for(i = j = 0; i < learnts.size(); i++) {
         Clause &c = ca[learnts[i]];
         if(c.size() > 2 && !locked(c) && i < learnts.size() / 2)
