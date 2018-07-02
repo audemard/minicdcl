@@ -1,3 +1,7 @@
+A mini version of the cdcl solver Minisat with essential components.
+Used during SAT Summer School 2018 (Manchester).
+
+
 ================================================================================
 DIRECTORY OVERVIEW:
 
