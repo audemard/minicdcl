@@ -28,11 +28,25 @@ lbool Solver::search(int nof_conflicts) {
         CRef confl = propagate();                                // BCP (propagate all unit clauses until a fix point or a conflict is reached
 
         if(confl != CRef_Undef) {  // CONFLICT
-            conflicts++;nbConflictsInCurrentRun++;
+            conflicts++;
+            nbConflictsInCurrentRun++;
 
             if(decisionLevel() == 0) return l_False;             // Formula is UNSAT
 
+
+            trailQueue.push(trail.size());
+            // BLOCK RESTART (CP 2012 paper)
+            if(conflicts > 10000 && lbdQueue.isvalid() && trail.size() > 1.4 * trailQueue.getavg())
+                lbdQueue.fastclear();
+
+
+
             analyze(confl, learnt_clause, backtrack_level, lbd); // Analyze
+
+            // Glucose restarts
+            lbdQueue.push(lbd);
+            sumLBD += lbd;
+
             cancelUntil(backtrack_level);                        // Backjump
 
             if(learnt_clause.size() == 1)
@@ -52,7 +66,8 @@ lbool Solver::search(int nof_conflicts) {
             if(conflicts % 1000 == 0 && verbosity >= 1) printIntermediateStats();
 
         } else {  // NO CONFLICT
-            if(nof_conflicts >= 0 && nbConflictsInCurrentRun >= nof_conflicts || !withinBudget()) { // Reached bound on number of conflicts.
+            if(lbdQueue.isvalid() && (lbdQueue.getavg() * 0.8) > (sumLBD / conflicts)) { // Glucose restarts
+                lbdQueue.fastclear();  // Clear the queue
                 cancelUntil(0);
                 return l_Undef;
             }
@@ -322,18 +337,20 @@ void Solver::analyze(CRef confl, vec<Lit> &out_learnt, int &out_btlevel, int &lb
 struct reduceDB_lt {
     ClauseAllocator &ca;
 
+
     reduceDB_lt(ClauseAllocator &ca_) : ca(ca_) {}
+
 
     bool operator()(CRef x, CRef y) {
         // Main criteria... Like in MiniSat we keep all binary clauses
-        if (ca[x].size() > 2 && ca[y].size() == 2) return 1;
+        if(ca[x].size() > 2 && ca[y].size() == 2) return 1;
 
-        if (ca[y].size() > 2 && ca[x].size() == 2) return 0;
-        if (ca[x].size() == 2 && ca[y].size() == 2) return 0;
+        if(ca[y].size() > 2 && ca[x].size() == 2) return 0;
+        if(ca[x].size() == 2 && ca[y].size() == 2) return 0;
 
         // Second one  based on literal block distance
-        if (ca[x].lbd() > ca[y].lbd()) return 1;
-        if (ca[x].lbd() < ca[y].lbd()) return 0;
+        if(ca[x].lbd() > ca[y].lbd()) return 1;
+        if(ca[x].lbd() < ca[y].lbd()) return 0;
 
 
         // Finally we can use old activity or size, we choose the first one
@@ -509,17 +526,16 @@ void Solver::printIntermediateStats() {
     printElement(starts);
     printElement(conflicts);
     printElement(decisions);
-    printElement((int)(nb_resolutions/conflicts));
+    printElement((int) (nb_resolutions / conflicts));
     printElement(nb_reducedb);
-    printElement(nb_lits_in_learnts/learnts.size());
+    printElement(nb_lits_in_learnts / learnts.size());
     printElement(nb_removed_clauses);
     printElement(progressEstimate() * 100);
     std::cout << std::endl;
 }
 
 
-
-int Solver::computeLBD(vec<Lit> & lits) {
+int Solver::computeLBD(vec<Lit> &lits) {
     int nblevels = 0;
     FLAG++;
     for(int i = 0; i < lits.size(); i++) {
@@ -561,12 +577,18 @@ Solver::Solver() :
         //
         starts(0), decisions(0), rnd_decisions(0), propagations(0), conflicts(0), nb_removed_clauses(0), nb_reducedb(0),
         nb_resolutions(0), nb_lits_in_learnts(0),
-        ok(true),  cla_inc(1), var_inc(1), watches(WatcherDeleted(ca)), qhead(0),
+        ok(true), cla_inc(1), var_inc(1), watches(WatcherDeleted(ca)), qhead(0),
         order_heap(VarOrderLt(activity)), progress_estimate(0), FLAG(0)
 
         // Resource constraints:
         //
-        , conflict_budget(-1), propagation_budget(-1), asynch_interrupt(false) {}
+        , conflict_budget(-1), propagation_budget(-1), asynch_interrupt(false) {
+
+    lbdQueue.initSize(50);
+    trailQueue.initSize(5000);
+    sumLBD = 0;
+
+}
 
 
 Solver::~Solver() {

@@ -8,7 +8,7 @@
 #include "core/SolverTypes.h"
 #include<iostream>
 #include <iomanip>
-
+#include "mtl/BoundedQueue.h"
 
 namespace CDCL {
 
@@ -142,6 +142,9 @@ namespace CDCL {
         int qhead;                   // Head of queue (as index into the trail -- no more explicit propagation queue in MiniSat).
         Heap<VarOrderLt> order_heap; // A priority queue of variables ordered with respect to the variable activity.
         double progress_estimate;    // Set by 'search()'.
+
+        bqueue<unsigned int> trailQueue,lbdQueue; // Bounded queues for restarts.
+        long sumLBD;
 
         ClauseAllocator ca;
 
